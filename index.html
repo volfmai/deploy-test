@@ -1,0 +1,79 @@
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura.Ge - შემეცნებითი ჰაბი</title>
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<meta name="application-name" content="Aura.Ge">
+<meta name="apple-mobile-web-app-title" content="Aura.Ge">
+
+<!-- ✅ Favicons & Icons -->
+<link rel="icon" type="image/svg+xml" href="/icons/icon.svg" sizes="any">
+<link rel="apple-touch-icon" href="/icons/icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" sizes="432x432" href="/icons/icon-432x432.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512x512.png">
+
+<link rel="manifest" href="/manifest.json">
+
+<script>
+(function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+
+    const style = document.createElement('style');
+    style.textContent = 'html, body { transition: none !important; }';
+    document.head.appendChild(style);
+
+    const themeColor = document.createElement('meta');
+    themeColor.name = 'theme-color';
+    themeColor.content = isDark ? '#1a1a1a' : '#FFFFFF';
+    document.head.appendChild(themeColor);
+
+    if (isDark) document.documentElement.classList.add('dark');
+
+    window.addEventListener('DOMContentLoaded', () => style.remove());
+})();
+</script>
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <div class="logo">Aura.Ge</div>
+    <button id="theme-toggle" aria-label="თემის შეცვლა (ღია/მუქი)" aria-pressed="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path pathLength="1" class="moon-icon" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            <circle class="sun-icon" pathLength="1" cx="12" cy="12" r="5"></circle>
+            <line class="sun-icon" pathLength="1" x1="12" y1="1" x2="12" y2="3"></line>
+            <line class="sun-icon" pathLength="1" x1="12" y1="21" x2="12" y2="23"></line>
+            <line class="sun-icon" pathLength="1" x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line class="sun-icon" pathLength="1" x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line class="sun-icon" pathLength="1" x1="1" y1="12" x2="3" y2="12"></line>
+            <line class="sun-icon" pathLength="1" x1="21" y1="12" x2="23" y2="12"></line>
+            <line class="sun-icon" pathLength="1" x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line class="sun-icon" pathLength="1" x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+</header>
+
+<main role="main">
+    <!-- შენი კონტენტი აქ -->
+</main>
+
+<footer>
+    <p>&copy; 2025 Aura.Ge - Made with ❤️ in Georgia</p>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
+
+
