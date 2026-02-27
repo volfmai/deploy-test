@@ -1,19 +1,17 @@
-
-
-const CACHE_NAME = 'aura-cache-v5';
-const OFFLINE_URL = '/offline.html';
+const CACHE_NAME = 'aura-cache-v6'; // ვერსია ავწიე, რომ ქეში განახლდეს
+const OFFLINE_URL = 'offline.html';
 
 const STATIC_FILES = [
-    '/',
-    '/index.html',
-    '/css/style.css',
-    '/js/main.js',
-    '/manifest.json',
-    '/icons/icon.svg',
-    '/icons/icon-180x180.png',
-    '/icons/icon-432x432.png',
-    '/icons/icon-512x512.png',
-    OFFLINE_URL
+    './',
+    'index.html',
+    'style.css',
+    'main.js',
+    'manifest.json',
+    'icon.svg',
+    'icon-180x180.png',
+    'icon-432x432.png',
+    'icon-512x512.png',
+    'offline.html'
 ];
 
 self.addEventListener('install', event => {
@@ -53,7 +51,7 @@ self.addEventListener('fetch', event => {
                 
                 if (isHtml) {
                     const offline = await caches.match(OFFLINE_URL);
-                    return offline || caches.match('/');
+                    return offline || caches.match('index.html');
                 }
 
                 const cached = await caches.match(event.request);
@@ -61,4 +59,3 @@ self.addEventListener('fetch', event => {
             })
     );
 });
-
