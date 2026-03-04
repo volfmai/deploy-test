@@ -25,11 +25,6 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('activate', event => {
-    event.waitUntil(
-        caches.keys().then(keys => 
-            Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
-        )
-    );
     self.clients.claim();
 });
 
@@ -46,15 +41,14 @@ self.addEventListener('fetch', event => {
                 return response;
             })
             .catch(async () => {
-                const isHtml = event.request.mode === 'navigate' || event.request.headers.get('accept')?.includes('text/html');
-                
-                if (isHtml) {
-                    const offline = await caches.match(OFFLINE_URL);
-                    return offline || caches.match('index.html');
-                }
-
                 const cached = await caches.match(event.request);
-                return cached || new Response('Offline resource not available', { status: 503 });
+                if (cached) return cached;
+
+                if (event.request.mode === 'navigate' || event.request.headers.get('accept')?.includes('text/html')) {
+                    return caches.match(OFFLINE_URL);
+                }
+                return new Response('Offline resource not available', { status: 503 });
             })
     );
 });
+
