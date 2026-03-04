@@ -9,13 +9,14 @@
     <link rel="apple-touch-icon" href="icon-180x180.png?v=158">
     <link rel="manifest" href="manifest.json?v=3">
 
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-            if (isDark) document.documentElement.classList.add('dark');
-        })();
+  <script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+        if (isDark) document.documentElement.classList.add('dark');
+    })();
+
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js');
@@ -54,6 +55,7 @@
     <script src="main.js"></script>
 </body>
 </html>
+
 
 
 
