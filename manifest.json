@@ -2,7 +2,7 @@
   "name": "My Aura App",
   "short_name": "Aura.Ge",
   "description": "Aura.Ge – შემეცნებითი ჰაბი",
-  "start_url": "/?v=99",
+  "start_url": "/?v=106",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
@@ -14,10 +14,16 @@
       "purpose": "any"
     },
     {
-      "src": "icon-512x512.png?v=99",
+      "src": "icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "icon-180x180.png",
