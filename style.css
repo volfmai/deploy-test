@@ -6,9 +6,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   * {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
+    animation: none;
+    transition: none;
+    scroll-behavior: auto;
   }
 }
 
@@ -21,7 +21,6 @@
     --border: transparent;
 }
 
-/* ⚪️ Light Mode - კომენტარი დახურულია აქ -> */
 html.light {
     --bg: #ffffff;
     --text: #333;
@@ -30,7 +29,6 @@ html.light {
     --border: transparent;
 }
 
-/* 🌑 Dark Mode - კომენტარი დახურულია აქ -> */
 html.dark {
     --bg: #121212;
     --text: #E0E0E0;
