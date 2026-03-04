@@ -2,7 +2,7 @@
   "name": "My Aura App",
   "short_name": "Aura.Ge",
   "description": "Aura.Ge – შემეცნებითი ჰაბი",
-  "start_url": "/?v=106",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
