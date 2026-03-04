@@ -9,7 +9,6 @@ const STATIC_FILES = [
     'manifest.json',
     'icon.svg',
     'icon-180x180.png',
-    'icon-432x432.png',
     'icon-512x512.png',
     'offline.html'
 ];
@@ -59,3 +58,4 @@ self.addEventListener('fetch', event => {
             })
     );
 });
+
