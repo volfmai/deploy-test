@@ -1,4 +1,4 @@
-const CACHE_NAME = 'aura-cache-v6'; // ვერსია ავწიე, რომ ქეში განახლდეს
+const CACHE_NAME = 'aura-cache';
 const OFFLINE_URL = 'offline.html';
 
 const STATIC_FILES = [
@@ -17,7 +17,7 @@ self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
             return Promise.allSettled(
-                STATIC_FILES.map(url => cache.add(url).catch(() => console.warn(`Failed: ${url}`)))
+                STATIC_FILES.map(url => cache.add(url).catch(() => {}))
             );
         })
     );
@@ -58,4 +58,3 @@ self.addEventListener('fetch', event => {
             })
     );
 });
-
