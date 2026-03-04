@@ -60,15 +60,5 @@ class ThemeManager {
 
 window.addEventListener('DOMContentLoaded', () => {
     new ThemeManager('#theme-toggle');
-
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('✅ Service Worker registered:', registration.scope);
-                registration.update();
-            })
-            .catch(error => {
-                console.error('❌ Service Worker registration failed:', error);
-            });
-    }
 });
+
