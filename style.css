@@ -95,11 +95,33 @@ button:focus-visible {
     stroke-width: 2;
 }
 
-.moon-icon { stroke-dasharray: 0px 1px; opacity: 0; transition: all 0.5s ease; }
-.sun-icon { stroke-dasharray: 1px 1px; opacity: 1; transition: all 0.5s ease; }
+/* --- აი აქ არის გასწორებული ანიმაცია (კოდეპენის ლოგიკა) --- */
 
-html.dark .moon-icon { stroke-dasharray: 1px 1px; opacity: 1; }
-html.dark .sun-icon { stroke-dasharray: 0px 1px; opacity: 0; }
+/* თეთრი რეჟიმი: მთვარე ჩანს (1px), მზე დამალულია (0px) */
+.moon-icon { 
+    stroke-dasharray: 1px 1px; 
+    opacity: 1; 
+    transition: stroke-dasharray 0.5s ease-in, opacity 300ms ease-in; 
+}
+
+.sun-icon { 
+    stroke-dasharray: 0px 1px; 
+    opacity: 0; 
+    transition: stroke-dasharray 0.5s ease-in, opacity 300ms ease-in; 
+}
+
+/* შავი რეჟიმი (html.dark): მთვარე იშლება (0px), მზე იხატება (1px) */
+html.dark .moon-icon { 
+    stroke-dasharray: 0px 1px; 
+    opacity: 0; 
+}
+
+html.dark .sun-icon { 
+    stroke-dasharray: 1px 1px; 
+    opacity: 1; 
+}
+
+/* --- შენი დანარჩენი კონტენტი --- */
 
 main {
     max-width: 1200px;
