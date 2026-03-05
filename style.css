@@ -92,7 +92,7 @@ button:focus-visible {
     transition: stroke var(--transition-duration);
     stroke: var(--text);
     fill: none;
-    stroke-width: 1.2;
+    stroke-width: 1.0;
 }
 
 /* --- აი აქ არის გასწორებული ანიმაცია (კოდეპენის ლოგიკა) --- */
@@ -182,4 +182,5 @@ html.dark footer {
     .hero h1 { font-size: 2.2rem; }
     header { padding: 1rem; }
 }
+
 
