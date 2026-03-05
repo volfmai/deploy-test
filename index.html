@@ -10,19 +10,14 @@
     <link rel="manifest" href="manifest.json?v=3">
 
     <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-            if (isDark) document.documentElement.classList.add('dark');
-        })();
+(function () {
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js');
-            });
-        }
-    </script>
+    const theme = saved || (prefersDark ? 'dark' : 'light');
+    document.documentElement.classList.add(theme);
+})();
+</script>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -56,5 +51,6 @@
     <script src="main.js"></script>
 </body>
 </html>
+
 
 
