@@ -1,19 +1,23 @@
-/* 1. Dark Mode-ის ფერების ცვლადები */
-/* ეს უნდა დაემატოს საიტის არსებულ :root სექციას */
 html.light {
+    color-scheme: light;
     --bg: #ffffff;
     --text: #333333;
 }
 
 html.dark {
+    color-scheme: dark;
     --bg: #121212;
     --text: #E0E0E0;
 }
 
-/* 2. თემის გადამრთველი ღილაკის სტილი */
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
 #theme-toggle {
     border: none;
-    background-color: transparent;
+    background: transparent;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -22,33 +26,32 @@ html.dark {
 }
 
 #theme-toggle svg {
-    width: 26px; /* Aura.ge-ს სტანდარტული ზომა */
+    width: 26px;
     height: 26px;
     stroke: var(--text);
     fill: none;
-    stroke-width: 1.0;
-    transition: stroke 0.4s ease;
+    stroke-width: 1;
+    transition: stroke 0.3s ease;
 }
 
-/* 3. იკონის ანიმაციის ლოგიკა */
-.moon-icon { 
-    stroke-dasharray: 1px 1px; 
-    opacity: 1; 
-    transition: stroke-dasharray 0.5s ease-in, opacity 0.3s ease-in; 
+.moon-icon {
+    stroke-dasharray: 1px 1px;
+    opacity: 1;
+    transition: stroke-dasharray 0.5s ease, opacity 0.3s ease;
 }
 
-.sun-icon { 
-    stroke-dasharray: 0px 1px; 
-    opacity: 0; 
-    transition: stroke-dasharray 0.5s ease-in, opacity 0.3s ease-in; 
+.sun-icon {
+    stroke-dasharray: 0px 1px;
+    opacity: 0;
+    transition: stroke-dasharray 0.5s ease, opacity 0.3s ease;
 }
 
-html.dark .moon-icon { 
-    stroke-dasharray: 0px 1px; 
-    opacity: 0; 
+html.dark .moon-icon {
+    stroke-dasharray: 0px 1px;
+    opacity: 0;
 }
 
-html.dark .sun-icon { 
-    stroke-dasharray: 1px 1px; 
-    opacity: 1; 
+html.dark .sun-icon {
+    stroke-dasharray: 1px 1px;
+    opacity: 1;
 }
