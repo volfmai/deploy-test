@@ -3,9 +3,6 @@ const OFFLINE_URL = 'offline.html';
 
 const STATIC_FILES = [
     './',
-    'index.html',
-    'style.css',
-    'main.js',
     'manifest.json',
     'icon.svg',
     'icon-180x180.png',
@@ -63,3 +60,4 @@ self.addEventListener('fetch', event => {
             })
     );
 });
+
